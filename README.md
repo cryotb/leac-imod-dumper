@@ -58,6 +58,7 @@ Above function is responsible for some parts of the loading procedure. All we ar
 - Because we are attaching GDB to the game process, you should either be offline or use an alt account.
 - The offset to the `write` call has been hardcoded due to laziness, you can easily automate this with signature scanning and some auto disassembly.
 - There are better methods of doing this, for example see how it utilizes file descriptors, but that's for another day.
+- My attempt to reliably differentiate between builds is a lame CRC-32 on the whole image, this is bad as recompilations and similar can also affect this, even if no files have been changed. Ideally you would replace it with something better. 
 
 # Conclusion
 You now have your hands on the internal game module component of EasyAntiCheat. Just like on windows, it handles Cerberus stuff, Game Interfaces, and such. Keep in mind that it's in ELF format, not PE, and it's moderately obfuscated so good luck! Tested on Apex Legends only. P.S: I don't work with python at all, so excuse the code quality ;-)
