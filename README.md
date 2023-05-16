@@ -49,3 +49,8 @@ void* c_eac_launcher::load_shlib_from_mem(void *buf, size_t len, const char **pa
 }
 ```
 Above function is responsible for some parts of the loading procedure. All we are doing is setting a breakpoint at it's call to `write`, reading the register state to get payload base and length, and then saving it on disk.
+
+# Caveats
+- Because we are attaching GDB to the game process, you should either be offline or use an alt account.
+- The offset to the `write` call has been hardcoded due to laziness, you can easily automate this with signature scanning and some auto disassembly.
+- There are better methods of doing this, for example see how it utilizes file descriptors, but that's for another day.
