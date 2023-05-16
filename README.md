@@ -2,10 +2,6 @@
 For the people already having past experience with researching EAC on Windows, they will remember their internal module residing in the game process. Whilst on Windows this is mapped by `EasyAntiCheat.sys` kernel driver, on linux it's being done by `easyanticheat_x64.so`, which is a user-mode shared library also running in the game process.
 This project consists of a small python script which you'll need to load into gdb, that will obtain said module with ELF-Headers intact.
 
-# Showcase
-![](sample_output.png)
-![](ida_view.png)
-
 # Usage
 ```
 git clone https://github.com/cryotb/leac-imod-dumper
@@ -59,6 +55,10 @@ Above function is responsible for some parts of the loading procedure. All we ar
 - The offset to the `write` call has been hardcoded due to laziness, you can easily automate this with signature scanning and some auto disassembly.
 - There are better methods of doing this, for example see how it utilizes file descriptors, but that's for another day.
 - My attempt to reliably differentiate between builds is a lame CRC-32 on the whole image, this is bad as recompilations and similar can also affect this, even if no files have been changed. Ideally you would replace it with something better. 
+
+# Showcase
+![](sample_output.png)
+![](ida_view.png)
 
 # Conclusion
 You now have your hands on the internal game module component of EasyAntiCheat. Just like on windows, it handles Cerberus stuff, Game Interfaces, and such. Keep in mind that it's in ELF format, not PE, and it's moderately obfuscated so good luck! Tested on Apex Legends only. P.S: I don't work with python at all, so excuse the code quality ;-)
