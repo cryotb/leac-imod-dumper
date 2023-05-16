@@ -54,3 +54,6 @@ Above function is responsible for some parts of the loading procedure. All we ar
 - Because we are attaching GDB to the game process, you should either be offline or use an alt account.
 - The offset to the `write` call has been hardcoded due to laziness, you can easily automate this with signature scanning and some auto disassembly.
 - There are better methods of doing this, for example see how it utilizes file descriptors, but that's for another day.
+
+# Conclusion
+You now have your hands on the internal game module component of EasyAntiCheat. Just like on windows, it handles Cerberus stuff, Game Interfaces, and such. Keep in mind that it's in ELF format, not PE, and it's moderately obfuscated so good luck!
