@@ -2,6 +2,10 @@
 For the people already having past experience with researching EAC on Windows, they will remember their internal module residing in the game process. Whilst on Windows this is mapped by `EasyAntiCheat.sys` kernel driver, on linux it's being done by `easyanticheat_x64.so`, which is a user-mode shared library also running in the game process.
 This project consists of a small python script which you'll need to load into gdb, that will obtain said module with ELF-Headers intact.
 
+# Showcase
+![](sample_output.png)
+![](ida_view.png)
+
 # Usage
 ```
 git clone https://github.com/cryotb/leac-imod-dumper
